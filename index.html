@@ -275,6 +275,33 @@
       margin-top: 16px;
       padding-bottom: 26px;
     }
+    .about-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-photo {
+  flex: 0 0 140px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 700px) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .about-photo {
+    justify-content: center;
+  }
+}
+
 
     @media (max-width: 700px) {
       .nav-inner {
@@ -323,24 +350,37 @@
   </nav>
 
   <!-- Header -->
-  <header id="about">
-    <img class="avatar" src="mohansaip.jpg" alt="Mohan Sai Pragada">
-    <div class="name">Mohan Sai Pragada</div>
-    <div class="summary">
-      Assistant Systems Engineer at Tata Consultancy Services (TCS), working on monitoring,
-      incident handling and the reliable operation of production systems. I am interested in applied
-      machine learning, computer vision and system-level applications, which I explore through
-      projects in deep learning and power electronics.
+  <header>
+  <div class="about-wrapper">
+
+    <div class="about-text">
+      <div class="name">Mohan Sai Pragada</div>
+
+      <div class="summary">
+        Assistant Systems Engineer at Tata Consultancy Services (TCS), working on monitoring,
+        incident handling and reliable production operations. Interested in applied machine learning,
+        computer vision and power electronics.
+      </div>
+
+      <div class="contact">
+        Email: <a href="mailto:saipragada99@gmail.com">saipragada99@gmail.com</a> ·
+        Phone: (+91) 8688718801
+      </div>
+
+      <div class="contact">
+        LinkedIn: <a href="https://www.linkedin.com/in/mohan-sai-pragada-9110451b4" target="_blank">
+        linkedin.com/in/mohan-sai-pragada-9110451b4</a> ·
+        GitHub: <a href="https://github.com/mohansaipragada" target="_blank">github.com/mohansaipragada</a>
+      </div>
     </div>
-    <div class="contact">
-      Email: <a href="mailto:saipragada99@gmail.com">saipragada99@gmail.com</a> ·
-      Phone: (+91) 8688718801
+
+    <div class="about-photo">
+      <img class="avatar" src="mohansaip.jpg" alt="Mohan Sai Pragada">
     </div>
-    <div class="contact">
-      LinkedIn: <a href="https://www.linkedin.com/in/mohan-sai-pragada-9110451b4" target="_blank">linkedin.com/in/mohan-sai-pragada-9110451b4</a> ·
-      GitHub: <a href="https://github.com/mohansaipragada" target="_blank">github.com/mohansaipragada</a>
-    </div>
-  </header>
+
+  </div>
+</header>
+
 
   <main class="container">
 
