@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Mohan Sai Pragada — Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <title>Mohan Sai Pragada – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     :root {
@@ -15,254 +15,108 @@
       --border: #e2e8f0;
       --pill-bg: #e0edff;
       --pill-text: #1d4ed8;
-      --nav-bg: rgba(255,255,255,0.9);
-    }
-
-    body[data-theme="dark"] {
-      --bg: #020617;
-      --card: #020617;
-      --fg: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #60a5fa;
-      --border: #1f2937;
-      --pill-bg: #1e293b;
-      --pill-text: #bfdbfe;
-      --nav-bg: rgba(15,23,42,0.9);
     }
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: radial-gradient(circle at top, #e0edff 0, var(--bg) 45%);
+      font: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
       color: var(--fg);
     }
 
-    a { color: var(--accent); text-decoration: none; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
     a:hover { text-decoration: underline; }
 
-    /* Top nav */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .nav-left {
-      font-weight: 600;
-      font-size: 15px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      font-size: 14px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .theme-toggle-btn {
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      font-size: 13px;
-      padding: 4px 10px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .theme-toggle-btn:hover {
-      border-color: var(--accent);
-    }
-
     header {
-      max-width: 980px;
-      margin: 26px auto 12px;
+      max-width: 900px;
+      margin: 32px auto 12px;
       padding: 0 20px;
     }
 
     .name {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
     }
 
-    .tag {
+    .meta {
+      margin-top: 8px;
       color: var(--muted);
-      font-size: 16px;
-      margin-top: 4px;
+      font-size: 14px;
     }
 
     .container {
-      max-width: 980px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 0 20px 60px;
+      padding: 0 20px 40px;
     }
 
     section {
       background: var(--card);
+      border-radius: 12px;
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px 18px 18px;
-      margin: 16px 0;
-      box-shadow: 0 10px 25px rgba(15,23,42,0.05);
+      padding: 18px 18px 14px;
+      margin: 12px 0;
     }
 
     h2 {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       font-size: 18px;
-      letter-spacing: .15px;
     }
 
     h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
+      margin: 0 0 4px;
+      font-size: 15px;
     }
-
-    ul { margin: 8px 0 0 20px; padding: 0; }
-    li { margin: 6px 0; }
 
     .pill {
       display: inline-block;
       background: var(--pill-bg);
       color: var(--pill-text);
-      padding: 4px 10px;
+      padding: 3px 10px;
       border-radius: 999px;
-      margin: 4px 6px 0 0;
-      font-size: 13px;
+      margin: 3px 6px 0 0;
+      font-size: 12px;
       white-space: nowrap;
     }
 
-    .grid {
+    ul {
+      margin: 6px 0 0 18px;
+      padding: 0;
+    }
+
+    li { margin: 4px 0; }
+
+    .two-col {
       display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 14px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
-    .project-card {
-      border-radius: 10px;
-      border: 1px dashed var(--border);
-      padding: 10px 10px 12px;
-    }
-
-    .project-image {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      margin: 4px 0 8px;
-      display: block;
-    }
+    .muted { color: var(--muted); font-size: 13px; }
 
     .footer {
       text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 24px;
-      padding-bottom: 30px;
-    }
-
-    /* Timeline for experience */
-    .timeline {
-      position: relative;
-      margin-left: 10px;
-      padding-left: 20px;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 6px;
-      top: 4px;
-      bottom: 4px;
-      width: 2px;
-      background: var(--border);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 14px;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -2px;
-      top: 6px;
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(37,99,235,0.18);
-    }
-
-    .timeline-role {
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    .timeline-meta {
       font-size: 13px;
       color: var(--muted);
-      margin-bottom: 4px;
+      margin-top: 16px;
     }
 
-    .muted {
-      color: var(--muted);
-    }
-
-    @media (max-width: 600px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 700px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
       }
-
-      header {
-        margin-top: 18px;
-      }
-
+      header { margin-top: 20px; }
       .name { font-size: 24px; }
-      .tag { font-size: 14px; }
     }
 
-    /* Print styling for PDF export */
     @media print {
-      body {
-        background: #ffffff !important;
-      }
-      .nav, .theme-toggle-btn {
-        display: none !important;
-      }
-      section {
-        box-shadow: none;
-        border: 1px solid #e5e7eb;
-        break-inside: avoid;
-      }
+      body { background: #ffffff; }
+      section { border: 1px solid #e5e7eb; break-inside: avoid; }
       a::after {
         content: " (" attr(href) ")";
         font-size: 11px;
@@ -271,180 +125,141 @@
     }
   </style>
 </head>
-
 <body>
-  <!-- Top nav -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-left">Mohan Sai Pragada</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <button id="theme-toggle" class="theme-toggle-btn" type="button">
-        <span id="theme-icon">🌙</span>
-        <span id="theme-label">Dark</span>
-      </button>
-    </div>
-  </nav>
-
   <header>
     <div class="name">Mohan Sai Pragada</div>
-    <div class="tag">Systems Administration • Ops Reliability • Applied Machine Learning</div>
+    <div class="meta">
+      Nationality: Indian · Date of birth: 19/08/2002 · Place of birth: Duppituru, India
+    </div>
+    <div class="meta">
+      Phone: (+91) 8688718801 · Email: <a href="mailto:saipragada99@gmail.com">saipragada99@gmail.com</a>
+    </div>
+    <div class="meta">
+      LinkedIn: <a href="https://www.linkedin.com/in/mohan-sai-pragada-9110451b4" target="_blank">linkedin.com/in/mohan-sai-pragada-9110451b4</a> ·
+      GitHub: <a href="https://github.com/mohansaipragada" target="_blank">github.com/mohansaipragada</a>
+    </div>
   </header>
 
   <main class="container">
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        IT professional at TCS working on reliable operation of production systems: proactive alert triage,
-        incident response, and change execution in distributed environments. Hands-on with Linux-based services,
-        monitoring tools and ticketing workflows. Interests include applied machine learning, image classification
-        and signal processing, demonstrated through a compact car-brand classifier built under data constraints.
-      </p>
-    </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        ✉️ <strong>Email:</strong> <a href="mailto:sai.pragada@gmail.com">sai.pragada@gmail.com</a><br>
-        🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohan-sai-pragada-9110451b4" target="_blank">linkedin.com/in/mohan-sai-pragada-9110451b4</a><br>
-        💻 <strong>GitHub:</strong> <a href="https://github.com/mohansaipragada" target="_blank">github.com/mohansaipragada</a>
-      </p>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <div>
-        <span class="pill">Incident Response</span>
-        <span class="pill">Alert Triage</span>
-        <span class="pill">Linux Administration</span>
-        <span class="pill">Monitoring & Runbooks</span>
-        <span class="pill">Log Analysis</span>
-        <span class="pill">Python</span>
-        <span class="pill">Transfer Learning</span>
-        <span class="pill">Image Classification</span>
-        <span class="pill">Cloud Concepts</span>
-        <span class="pill">German A2</span>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="grid">
-
-        <div class="project-card">
-          <h3>Deep-Learning Car-Brand Classifier</h3>
-          <!-- Upload car-classifier.png to your repo and this will show -->
-          <img class="project-image" src="car-classifier.png" alt="Car brand classifier demo screenshot (mockup)">
-          <p class="muted">Computer Vision • Transfer Learning</p>
-          <p>
-            Compact CNN classifier fine-tuned via transfer learning on a small, class-balanced dataset
-            (&lt; 1k images across 3–5 brands). Achieved ~84% validation accuracy by tuning learning rate,
-            regularization and augmentations. Next steps: expand dataset, calibration and deployment as a small
-            web demo.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <h3>Ops Reliability Playbooks</h3>
-          <!-- Upload ops-playbooks.png to your repo and this will show -->
-          <img class="project-image" src="ops-playbooks.png" alt="Ops runbook workflow diagram (mockup)">
-          <p class="muted">SRE Mindset • Production Operations</p>
-          <p>
-            Standardized triage flows for critical alerts and wrote runbooks mapping symptoms to actions
-            and escalation paths. Impact: lower mean time to acknowledge, less guesswork for new team
-            members, and more consistent incident documentation for post-mortems.
-          </p>
-        </div>
-
-        <div class="project-card">
-          <h3>Energy & Systems Learning</h3>
-          <!-- Upload learning-notes.png to your repo and this will show -->
-          <img class="project-image" src="learning-notes.png" alt="DSP / systems learning notes (mockup)">
-          <p class="muted">Signal Processing • Foundations</p>
-          <p>
-            Ongoing study of digital signal processing, discrete mathematics and digital communication systems
-            to strengthen theoretical foundations relevant for data science, ML and future graduate studies
-            in information systems and digital business.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-role">System Administrator / Application Support</div>
-          <div class="timeline-meta">Tata Consultancy Services · 2023 – Present</div>
-          <p>
-            Monitor and triage production alerts, investigate infra and application issues, coordinate
-            with platform and feature teams, and support planned change windows. Contribute to runbook
-            improvements, alert hygiene and smoother on-call handovers with clear documentation.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <h2>Education & Learning</h2>
+    <section>
+      <h2>Work Experience</h2>
+      <h3>Tata Consultancy Services – Chennai, India</h3>
+      <div class="muted">Assistant Systems Engineer · 02/05/2024 – Present</div>
       <ul>
-        <li><strong>B.Tech in Electrical & Electronics Engineering</strong> — VIT (India)</li>
-        <li>Self-study: Digital Signal Processing, Discrete Mathematics, Digital Communications.</li>
-        <li>German learner (A2) preparing for Goethe Zertifikat; focus on formal email and workplace communication.</li>
+        <li>Monitored critical infrastructure (servers, applications, network) using enterprise monitoring tools.</li>
+        <li>Performed initial alert analysis, assessed impact, and identified likely root causes.</li>
+        <li>Escalated incidents to L3, application, or vendor teams in line with SLA protocols.</li>
+        <li>Maintained detailed logs and documentation of all actions taken during incidents.</li>
+        <li>Ensured timely incident resolution in alignment with SLA requirements.</li>
       </ul>
     </section>
 
-    <section id="writing">
-      <h2>Writing</h2>
+    <section>
+      <h2>Education and Training</h2>
+      <div class="two-col">
+        <div>
+          <h3>B.Tech in Electrical and Electronics</h3>
+          <div class="muted">Vellore Institute of Technology · 01/06/2019 – 01/04/2023</div>
+          <div class="muted">City: Vellore · Country: India · Final grade: 7.51/10</div>
+        </div>
+        <div>
+          <h3>Higher Secondary Education</h3>
+          <div class="muted">Sri Chaitanya Junior College · 01/05/2017 – 01/04/2019</div>
+          <div class="muted">City: Visakhapatnam · Country: India · Final grade: 8.98/10</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <h3>Design and Analysis of Bidirectional DC-DC Converters for Electric Vehicles</h3>
       <ul>
-        <li>Technical notes for monitoring runbooks, alert categorization and ML evaluation practices.</li>
-        <li>Short German texts (A2 level) for formal email communication and everyday professional scenarios.</li>
+        <li>Designed a bidirectional DC-DC converter supporting G2V (charging) and V2G (grid support) operations in electric vehicles.</li>
+        <li>Implemented sinusoidal current control and unity power factor to improve charging efficiency.</li>
+        <li>Analyzed converter performance for peak-load shaving and grid stability enhancement using simulation tools.</li>
+      </ul>
+
+      <h3>Custom Object Detection using TensorFlow</h3>
+      <ul>
+        <li>Developed a specialized deep learning model to accurately identify and locate vehicles in images.</li>
+        <li>Collected a custom dataset of vehicle images and trained a custom object-detection pipeline.</li>
+        <li>Improved performance iteratively as the model learned to accurately identify the targeted objects.</li>
+      </ul>
+
+      <h3>Car Brand Classification using Deep Learning</h3>
+      <ul>
+        <li>Built a system to automatically classify the brand of a car from images.</li>
+        <li>Gathered a dataset of 600 images across 3 different brands and trained a CNN-based classifier.</li>
+        <li>Achieved 95% training accuracy and 84% validation accuracy.</li>
+      </ul>
+
+      <h3>GitHub Copilot Beginner to Pro – AI for Coding & Development</h3>
+      <ul>
+        <li>Built a full-stack budgeting web application using GitHub Copilot to generate frontend and backend code.</li>
+        <li>Used Copilot Chat to generate unit tests, refactor code, and enforce secure coding practices.</li>
+        <li>Developed React/Next.js projects using Copilot Agent Mode for AI-powered code completion and developer productivity.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Language Skills</h2>
+      <div>
+        <span class="pill">Mother tongue: Telugu</span>
+        <span class="pill">English</span>
+        <span class="pill">German – A2</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div>
+        <span class="pill">Python</span>
+        <span class="pill">SQL</span>
+        <span class="pill">GitHub Copilot</span>
+        <span class="pill">Machine Learning basics</span>
+        <span class="pill">Deep Learning basics</span>
+        <span class="pill">NumPy</span>
+        <span class="pill">Pandas</span>
+        <span class="pill">OpenCV</span>
+        <span class="pill">Matplotlib</span>
+        <span class="pill">TensorFlow</span>
+        <span class="pill">Keras</span>
+        <span class="pill">MS Word</span>
+        <span class="pill">MS Excel</span>
+        <span class="pill">PowerPoint</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul>
+        <li>
+          <strong>GitHub Copilot Beginner to Pro – AI for Coding & Development</strong><br>
+          udemy / Certificate: ude.my/UC-d9f4556e-0a1b-4f2b-864a-ffef2bc15380
+        </li>
+        <li>
+          <strong>Applied Data Science powered by IBM</strong><br>
+          Credential ID: Ext-ADS-2022-8626
+        </li>
+        <li>
+          <strong>Internet of Things (IoT) powered by IBM</strong><br>
+          Credential ID: Ext-IOT-2023-4371
+        </li>
+        <li>
+          <strong>Fundamentals of Digital Marketing – Google Digital Garage</strong><br>
+          Credential ID: RSW C5U ZV7
+        </li>
+        <li>
+          <strong>Introduction to Deep Learning – Great Learning</strong>
+        </li>
       </ul>
     </section>
 
     <div class="footer">
-      © 2025 · Mohan Sai Pragada · Portfolio
+      © 2025 · Mohan Sai Pragada
     </div>
   </main>
-
-  <script>
-    (function () {
-      const body = document.body;
-      const btn = document.getElementById("theme-toggle");
-      const icon = document.getElementById("theme-icon");
-      const label = document.getElementById("theme-label");
-
-      function applyTheme(theme) {
-        if (theme === "dark") {
-          body.dataset.theme = "dark";
-          icon.textContent = "☀️";
-          label.textContent = "Light";
-        } else {
-          delete body.dataset.theme;
-          icon.textContent = "🌙";
-          label.textContent = "Dark";
-        }
-      }
-
-      const stored = localStorage.getItem("theme");
-      if (stored === "dark" || stored === "light") {
-        applyTheme(stored);
-      }
-
-      btn.addEventListener("click", () => {
-        const isDark = body.dataset.theme === "dark";
-        const next = isDark ? "light" : "dark";
-        localStorage.setItem("theme", next);
-        applyTheme(next);
-      });
-    })();
-  </script>
 </body>
 </html>
