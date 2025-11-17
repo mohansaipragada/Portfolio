@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mohan Sai Pragada — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root { --fg:#1b1f24; --muted:#5b6673; --bg:#f7fafc; --card:#ffffff; --accent:#2563eb; }
+    * { box-sizing: border-box; }
+    body { margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color:var(--fg); background:var(--bg); }
+    a { color:var(--accent); text-decoration:none; }
+    header { max-width:900px; margin:40px auto 16px; padding:0 20px; }
+    .name { font-size:28px; font-weight:700; }
+    .tag { color:var(--muted); }
+    .container { max-width:900px; margin:0 auto; padding:0 20px 60px; }
+    section { background:var(--card); border:1px solid #e5e7eb; border-radius:12px; padding:20px; margin:16px 0; }
+    h2 { margin:0 0 12px; font-size:18px; letter-spacing:.2px; }
+    ul { margin:8px 0 0 20px; }
+    li { margin:6px 0; }
+    .grid { display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .pill { display:inline-block; background:#eef2ff; color:#1e3a8a; padding:4px 10px; border-radius:999px; margin:4px 6px 0 0; font-size:13px; }
+    .footer { text-align:center; color:var(--muted); font-size:14px; margin-top:24px; }
+    @media print { a::after{content:" (" attr(href) ")"; color:var(--muted);} body{background:#fff;} section{break-inside:avoid;} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="name">Mohan Sai Pragada</div>
+    <div class="tag">Systems Administration • Ops Reliability • Applied ML</div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>About</h2>
+      <p>IT professional at TCS focused on reliable operations of production systems, with experience in proactive monitoring, incident response, and change execution in distributed environments. Interests in applied ML and signal processing complement daily work, demonstrated by a compact car‑brand image classifier built under data constraints, alongside ongoing German A2 learning for cross‑functional communication.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> <a href="mailto:sai.pragada@gmail.com">sai.pragada@gmail.com</a> • <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohan-sai-pragada-9110451b4">linkedin.com/in/mohan-sai-pragada-9110451b4</a> • <strong>GitHub:</strong> <a href="https://github.com/mohansaipragada">github.com/mohansaipragada</a></p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div>
+        <span class="pill">Incident Response</span>
+        <span class="pill">Alert Triage</span>
+        <span class="pill">Linux Admin</span>
+        <span class="pill">Log Analysis</span>
+        <span class="pill">Runbooks</span>
+        <span class="pill">Python</span>
+        <span class="pill">Transfer Learning</span>
+        <span class="pill">Image Classification</span>
+        <span class="pill">German A2</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="grid">
+        <div>
+          <h3>Deep‑Learning Car‑Brand Classifier</h3>
+          <p>3‑class image classifier from ~600 images using transfer learning with a compact CNN backbone, class‑balanced training, tuned LR/regularization. Results: 95% train accuracy and 84% validation accuracy. Next steps: stronger augmentation, more data, model calibration.</p>
+        </div>
+        <div>
+          <h3>Ops Reliability Playbooks</h3>
+          <p>Standardized triage for critical alerts and mapped them to actionable runbooks, reducing MTTA and improving service restoration workflows across production environments.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <p><strong>Tata Consultancy Services (TCS)</strong> — Systems Administration / Application Support<br>
+      Monitor critical alerts, investigate anomalies, coordinate with platform/app teams, document incidents, and support change windows for steady‑state operations. Focus on dependable execution, cross‑team coordination, and post‑incident improvements through runbook and alert hygiene updates.</p>
+    </section>
+
+    <section>
+      <h2>Education & Learning</h2>
+      <ul>
+        <li>B.Tech (India) — foundations in computing and engineering.</li>
+        <li>Continuing: Digital Signal Processing, Discrete Mathematics, Digital Communications.</li>
+        <li>German A2 learner preparing for Goethe exam.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Writing</h2>
+      <ul>
+        <li>English technical notes: monitoring runbooks and ML evaluation practices.</li>
+        <li>German A2: simple formal emails for professional scenarios.</li>
+      </ul>
+    </section>
+
+    <div class="footer">© 2025 Mohan Sai Pragada • Open to opportunities</div>
+  </main>
+</body>
+</html>
