@@ -8,21 +8,42 @@
   <style>
     :root {
       --bg: #f7fafc;
+      --bg-soft: #e0edff;
       --card: #ffffff;
       --fg: #0f172a;
       --muted: #64748b;
       --accent: #2563eb;
+      --accent-soft: #dbeafe;
       --border: #e2e8f0;
       --pill-bg: #e0edff;
       --pill-text: #1d4ed8;
+      --nav-bg: rgba(255,255,255,0.9);
+      --shadow-soft: 0 10px 25px rgba(15,23,42,0.08);
+    }
+
+    body[data-theme="dark"] {
+      --bg: #020617;
+      --bg-soft: #0b1120;
+      --card: #020617;
+      --fg: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #60a5fa;
+      --accent-soft: #1e293b;
+      --border: #1f2937;
+      --pill-bg: #1e293b;
+      --pill-text: #bfdbfe;
+      --nav-bg: rgba(15,23,42,0.9);
+      --shadow-soft: 0 10px 25px rgba(0,0,0,0.6);
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at top, var(--bg-soft) 0, var(--bg) 40%);
       color: var(--fg);
     }
 
@@ -32,9 +53,64 @@
     }
     a:hover { text-decoration: underline; }
 
+    /* Navbar */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .nav-left {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card);
+      cursor: pointer;
+    }
+    .theme-toggle:hover {
+      border-color: var(--accent);
+    }
+
     header {
-      max-width: 900px;
-      margin: 28px auto 10px;
+      max-width: 960px;
+      margin: 26px auto 12px;
       padding: 0 20px;
     }
 
@@ -50,23 +126,32 @@
     }
 
     .contact {
-      margin-top: 6px;
-      font-size: 14px;
+      margin-top: 4px;
+      font-size: 13px;
       color: var(--muted);
     }
 
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 20px 40px;
     }
 
     section {
       background: var(--card);
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid var(--border);
       padding: 16px 18px 14px;
-      margin: 12px 0;
+      margin: 14px 0;
+      box-shadow: var(--shadow-soft);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .4s ease, transform .4s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
@@ -86,7 +171,10 @@
 
     li { margin: 4px 0; }
 
-    .muted { color: var(--muted); font-size: 13px; }
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
 
     .pill {
       display: inline-block;
@@ -101,14 +189,100 @@
 
     .pill-group { margin-top: 4px; }
 
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    .project-card {
+      border-radius: 10px;
+      border: 1px dashed var(--border);
+      padding: 10px 10px 12px;
+      background: linear-gradient(135deg, var(--card), var(--accent-soft));
+    }
+
+    .project-image {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin: 4px 0 8px;
+      display: block;
+    }
+
+    /* Timeline for experience */
+    .timeline {
+      position: relative;
+      margin-left: 10px;
+      padding-left: 18px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 14px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.24);
+    }
+
+    .timeline-role {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .timeline-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 16px;
+      padding-bottom: 26px;
+    }
+
     @media (max-width: 700px) {
-      header { margin-top: 18px; }
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      header { margin-top: 20px; }
       .name { font-size: 22px; }
     }
 
     @media print {
-      body { background: #ffffff; }
-      section { border: 1px solid #e5e7eb; break-inside: avoid; }
+      body { background: #ffffff !important; }
+      .nav, .theme-toggle { display: none !important; }
+      section {
+        box-shadow: none !important;
+        border: 1px solid #e5e7eb;
+        break-inside: avoid;
+      }
       a::after {
         content: " (" attr(href) ")";
         font-size: 11px;
@@ -118,12 +292,33 @@
   </style>
 </head>
 <body>
-  <header>
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">Portfolio – Hof University Application</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button">
+        <span id="theme-icon">🌙</span>
+        <span id="theme-label">Dark</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header id="about">
     <div class="name">Mohan Sai Pragada</div>
     <div class="summary">
-      IT professional working as Assistant Systems Engineer at Tata Consultancy Services (TCS),
-      focusing on monitoring, incident handling and reliable operation of production systems.
-      Interested in applied machine learning, computer vision and system-level applications.
+      Assistant Systems Engineer at Tata Consultancy Services (TCS), working on monitoring,
+      incident handling and the reliable operation of production systems. I am interested in applied
+      machine learning, computer vision and system-level applications, which I explore through
+      projects in deep learning and power electronics.
     </div>
     <div class="contact">
       Email: <a href="mailto:saipragada99@gmail.com">saipragada99@gmail.com</a> ·
@@ -137,56 +332,78 @@
 
   <main class="container">
 
-    <section>
+    <!-- Experience / Timeline -->
+    <section id="experience">
       <h2>Professional Background</h2>
-      <h3>Tata Consultancy Services – Chennai, India</h3>
-      <div class="muted">Assistant Systems Engineer · 02/05/2024 – Present</div>
-      <ul>
-        <li>Monitor critical infrastructure (servers, applications, network) using enterprise monitoring tools.</li>
-        <li>Perform initial alert analysis, assess impact and identify likely root causes.</li>
-        <li>Escalate incidents to L3, application or vendor teams according to SLA protocols.</li>
-        <li>Maintain clear logs and documentation of actions taken during incidents.</li>
-        <li>Support timely incident resolution in line with SLA requirements.</li>
-      </ul>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-role">Assistant Systems Engineer</div>
+          <div class="timeline-meta">Tata Consultancy Services · Chennai, India · 02/05/2024 – Present</div>
+          <ul>
+            <li>Monitor critical infrastructure (servers, applications, network) using enterprise monitoring tools.</li>
+            <li>Perform initial alert analysis, assess impact and identify likely root causes.</li>
+            <li>Escalate incidents to L3, application or vendor teams according to SLA protocols.</li>
+            <li>Maintain clear logs and documentation of actions taken during incidents.</li>
+            <li>Support timely incident resolution in line with SLA requirements.</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section>
+    <!-- Projects with screenshots -->
+    <section id="projects">
       <h2>Selected Projects</h2>
+      <div class="project-grid">
 
-      <h3>Design and Analysis of Bidirectional DC-DC Converters for Electric Vehicles</h3>
-      <div class="muted">Power Electronics · Bachelor Project</div>
-      <ul>
-        <li>Designed a bidirectional DC-DC converter enabling G2V (charging) and V2G (grid support) operation for electric vehicles.</li>
-        <li>Implemented sinusoidal current control and unity power factor to improve charging efficiency.</li>
-        <li>Analyzed converter performance for peak-load shaving and grid stability enhancement using simulation tools.</li>
-      </ul>
+        <div class="project-card">
+          <h3>Car Brand Classification using Deep Learning</h3>
+          <img class="project-image" src="car-classifier.png" alt="Car brand classifier – demo screenshot (placeholder)">
+          <div class="muted">Image Classification · CNN · Computer Vision</div>
+          <ul>
+            <li>Built a system to automatically identify the brand of a car from images.</li>
+            <li>Created a dataset of 600 images from 3 different brands and trained a CNN-based classifier.</li>
+            <li>Achieved 95% training accuracy and 84% validation accuracy, with further improvements planned via data expansion.</li>
+          </ul>
+        </div>
 
-      <h3>Custom Object Detection using TensorFlow</h3>
-      <div class="muted">Computer Vision · Deep Learning</div>
-      <ul>
-        <li>Developed a deep learning model to detect and locate vehicles in images using a custom dataset.</li>
-        <li>Collected and prepared vehicle images and trained a custom object detection pipeline.</li>
-        <li>Improved model performance iteratively as training progressed and evaluation metrics were monitored.</li>
-      </ul>
+        <div class="project-card">
+          <h3>Design and Analysis of Bidirectional DC-DC Converters for EVs</h3>
+          <img class="project-image" src="ev-converter.png" alt="Bidirectional DC-DC converter schematic (placeholder)">
+          <div class="muted">Power Electronics · EV Systems</div>
+          <ul>
+            <li>Designed a bidirectional DC-DC converter supporting G2V (charging) and V2G (grid support) operation.</li>
+            <li>Implemented sinusoidal current control and unity power factor to improve charging efficiency.</li>
+            <li>Analyzed converter performance for peak-load shaving and grid stability enhancement using simulation tools.</li>
+          </ul>
+        </div>
 
-      <h3>Car Brand Classification using Deep Learning</h3>
-      <div class="muted">Image Classification · CNN</div>
-      <ul>
-        <li>Built a system to automatically identify the brand of a car from images.</li>
-        <li>Created a dataset of 600 images from 3 different brands and trained a CNN-based classifier.</li>
-        <li>Achieved 95% training accuracy and 84% validation accuracy, with plans for further improvement via data expansion and regularization.</li>
-      </ul>
+        <div class="project-card">
+          <h3>Custom Object Detection using TensorFlow</h3>
+          <img class="project-image" src="object-detection.png" alt="Custom vehicle detection visualization (placeholder)">
+          <div class="muted">Object Detection · Deep Learning</div>
+          <ul>
+            <li>Developed a deep learning model to detect and locate vehicles in images.</li>
+            <li>Collected and prepared a custom dataset of vehicle images for training.</li>
+            <li>Improved model performance iteratively based on evaluation metrics and qualitative inspection.</li>
+          </ul>
+        </div>
 
-      <h3>Full-Stack Budgeting Web App using GitHub Copilot</h3>
-      <div class="muted">Web Development · AI-assisted Coding</div>
-      <ul>
-        <li>Developed a budgeting web application with frontend and backend generated and refined using GitHub Copilot.</li>
-        <li>Used Copilot Chat to create unit tests, refactor code and apply secure coding practices.</li>
-        <li>Explored React/Next.js workflows supported by Copilot to speed up prototyping and development.</li>
-      </ul>
+        <div class="project-card">
+          <h3>Budgeting Web App with GitHub Copilot</h3>
+          <img class="project-image" src="budget-app.png" alt="Budgeting web app interface (placeholder)">
+          <div class="muted">Web Development · AI-assisted Coding</div>
+          <ul>
+            <li>Built a full-stack budgeting web application using GitHub Copilot to generate and refine code.</li>
+            <li>Used Copilot Chat to create unit tests, refactor functions and strengthen secure coding practices.</li>
+            <li>Explored React/Next.js workflows supported by Copilot to accelerate prototyping and development.</li>
+          </ul>
+        </div>
+
+      </div>
     </section>
 
-    <section>
+    <!-- Skills -->
+    <section id="skills">
       <h2>Skills</h2>
 
       <h3>Programming & Data</h3>
@@ -213,7 +430,7 @@
         <span class="pill">Keras</span>
       </div>
 
-      <h3>Other Skills</h3>
+      <h3>Operations & Tools</h3>
       <div class="pill-group">
         <span class="pill">Linux / basic system administration</span>
         <span class="pill">Incident monitoring & alert handling</span>
@@ -223,16 +440,78 @@
       </div>
     </section>
 
-    <section>
+    <!-- Education -->
+    <section id="education">
       <h2>Education</h2>
       <h3>B.Tech in Electrical and Electronics Engineering</h3>
-      <div class="muted">Vellore Institute of Technology (VIT), India · 2019 – 2023</div>
-      <div class="muted">Final grade: 7.51 / 10</div>
+      <div class="muted">
+        Vellore Institute of Technology (VIT), India · 2019 – 2023 · Final grade: 7.51 / 10
+      </div>
+    </section>
+
+    <!-- Contact note -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        For further details regarding my projects or professional experience, please feel free to contact me via email
+        or LinkedIn. This portfolio has been prepared specifically as part of my application to Hof University of Applied Sciences.
+      </p>
     </section>
 
     <div class="footer">
       Portfolio for application – Hof University of Applied Sciences · Mohan Sai Pragada
     </div>
   </main>
+
+  <script>
+    // Dark mode toggle
+    (function () {
+      const body = document.body;
+      const btn = document.getElementById("theme-toggle");
+      const icon = document.getElementById("theme-icon");
+      const label = document.getElementById("theme-label");
+
+      function applyTheme(theme) {
+        if (theme === "dark") {
+          body.dataset.theme = "dark";
+          icon.textContent = "☀️";
+          label.textContent = "Light";
+        } else {
+          delete body.dataset.theme;
+          icon.textContent = "🌙";
+          label.textContent = "Dark";
+        }
+      }
+
+      const stored = localStorage.getItem("theme");
+      if (stored === "dark" || stored === "light") {
+        applyTheme(stored);
+      }
+
+      btn.addEventListener("click", () => {
+        const isDark = body.dataset.theme === "dark";
+        const next = isDark ? "light" : "dark";
+        localStorage.setItem("theme", next);
+        applyTheme(next);
+      });
+    })();
+
+    // Scroll animation for sections
+    (function () {
+      const sections = document.querySelectorAll("main section");
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      sections.forEach(sec => observer.observe(sec));
+    })();
+  </script>
 </body>
 </html>
