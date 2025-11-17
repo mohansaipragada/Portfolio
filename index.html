@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Mohan Sai Pragada – Portfolio</title>
+  <title>Portfolio – Mohan Sai Pragada</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -34,19 +34,25 @@
 
     header {
       max-width: 900px;
-      margin: 32px auto 12px;
+      margin: 28px auto 10px;
       padding: 0 20px;
     }
 
     .name {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 700;
     }
 
-    .meta {
-      margin-top: 8px;
+    .summary {
+      margin-top: 6px;
       color: var(--muted);
       font-size: 14px;
+    }
+
+    .contact {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--muted);
     }
 
     .container {
@@ -59,7 +65,7 @@
       background: var(--card);
       border-radius: 12px;
       border: 1px solid var(--border);
-      padding: 18px 18px 14px;
+      padding: 16px 18px 14px;
       margin: 12px 0;
     }
 
@@ -69,9 +75,18 @@
     }
 
     h3 {
-      margin: 0 0 4px;
+      margin: 10px 0 4px;
       font-size: 15px;
     }
+
+    ul {
+      margin: 6px 0 0 18px;
+      padding: 0;
+    }
+
+    li { margin: 4px 0; }
+
+    .muted { color: var(--muted); font-size: 13px; }
 
     .pill {
       display: inline-block;
@@ -84,34 +99,11 @@
       white-space: nowrap;
     }
 
-    ul {
-      margin: 6px 0 0 18px;
-      padding: 0;
-    }
-
-    li { margin: 4px 0; }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 14px;
-    }
-
-    .muted { color: var(--muted); font-size: 13px; }
-
-    .footer {
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 16px;
-    }
+    .pill-group { margin-top: 4px; }
 
     @media (max-width: 700px) {
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      header { margin-top: 20px; }
-      .name { font-size: 24px; }
+      header { margin-top: 18px; }
+      .name { font-size: 22px; }
     }
 
     @media print {
@@ -128,13 +120,16 @@
 <body>
   <header>
     <div class="name">Mohan Sai Pragada</div>
-    <div class="meta">
-      Nationality: Indian · Date of birth: 19/08/2002 · Place of birth: Duppituru, India
+    <div class="summary">
+      IT professional working as Assistant Systems Engineer at Tata Consultancy Services (TCS),
+      focusing on monitoring, incident handling and reliable operation of production systems.
+      Interested in applied machine learning, computer vision and system-level applications.
     </div>
-    <div class="meta">
-      Phone: (+91) 8688718801 · Email: <a href="mailto:saipragada99@gmail.com">saipragada99@gmail.com</a>
+    <div class="contact">
+      Email: <a href="mailto:saipragada99@gmail.com">saipragada99@gmail.com</a> ·
+      Phone: (+91) 8688718801
     </div>
-    <div class="meta">
+    <div class="contact">
       LinkedIn: <a href="https://www.linkedin.com/in/mohan-sai-pragada-9110451b4" target="_blank">linkedin.com/in/mohan-sai-pragada-9110451b4</a> ·
       GitHub: <a href="https://github.com/mohansaipragada" target="_blank">github.com/mohansaipragada</a>
     </div>
@@ -143,89 +138,85 @@
   <main class="container">
 
     <section>
-      <h2>Work Experience</h2>
+      <h2>Professional Background</h2>
       <h3>Tata Consultancy Services – Chennai, India</h3>
       <div class="muted">Assistant Systems Engineer · 02/05/2024 – Present</div>
       <ul>
-        <li>Monitored critical infrastructure (servers, applications, network) using enterprise monitoring tools.</li>
-        <li>Performed initial alert analysis, assessed impact, and identified likely root causes.</li>
-        <li>Escalated incidents to L3, application, or vendor teams in line with SLA protocols.</li>
-        <li>Maintained detailed logs and documentation of all actions taken during incidents.</li>
-        <li>Ensured timely incident resolution in alignment with SLA requirements.</li>
+        <li>Monitor critical infrastructure (servers, applications, network) using enterprise monitoring tools.</li>
+        <li>Perform initial alert analysis, assess impact and identify likely root causes.</li>
+        <li>Escalate incidents to L3, application or vendor teams according to SLA protocols.</li>
+        <li>Maintain clear logs and documentation of actions taken during incidents.</li>
+        <li>Support timely incident resolution in line with SLA requirements.</li>
       </ul>
     </section>
 
     <section>
-      <h2>Education and Training</h2>
-      <div class="two-col">
-        <div>
-          <h3>B.Tech in Electrical and Electronics</h3>
-          <div class="muted">Vellore Institute of Technology · 01/06/2019 – 01/04/2023</div>
-          <div class="muted">City: Vellore · Country: India · Final grade: 7.51/10</div>
-        </div>
-        <div>
-          <h3>Higher Secondary Education</h3>
-          <div class="muted">Sri Chaitanya Junior College · 01/05/2017 – 01/04/2019</div>
-          <div class="muted">City: Visakhapatnam · Country: India · Final grade: 8.98/10</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
+      <h2>Selected Projects</h2>
 
       <h3>Design and Analysis of Bidirectional DC-DC Converters for Electric Vehicles</h3>
+      <div class="muted">Power Electronics · Bachelor Project</div>
       <ul>
-        <li>Designed a bidirectional DC-DC converter supporting G2V (charging) and V2G (grid support) operations in electric vehicles.</li>
+        <li>Designed a bidirectional DC-DC converter enabling G2V (charging) and V2G (grid support) operation for electric vehicles.</li>
         <li>Implemented sinusoidal current control and unity power factor to improve charging efficiency.</li>
         <li>Analyzed converter performance for peak-load shaving and grid stability enhancement using simulation tools.</li>
       </ul>
 
       <h3>Custom Object Detection using TensorFlow</h3>
+      <div class="muted">Computer Vision · Deep Learning</div>
       <ul>
-        <li>Developed a specialized deep learning model to accurately identify and locate vehicles in images.</li>
-        <li>Collected a custom dataset of vehicle images and trained a custom object-detection pipeline.</li>
-        <li>Improved performance iteratively as the model learned to accurately identify the targeted objects.</li>
+        <li>Developed a deep learning model to detect and locate vehicles in images using a custom dataset.</li>
+        <li>Collected and prepared vehicle images and trained a custom object detection pipeline.</li>
+        <li>Improved model performance iteratively as training progressed and evaluation metrics were monitored.</li>
       </ul>
 
       <h3>Car Brand Classification using Deep Learning</h3>
+      <div class="muted">Image Classification · CNN</div>
       <ul>
-        <li>Built a system to automatically classify the brand of a car from images.</li>
-        <li>Gathered a dataset of 600 images across 3 different brands and trained a CNN-based classifier.</li>
-        <li>Achieved 95% training accuracy and 84% validation accuracy.</li>
+        <li>Built a system to automatically identify the brand of a car from images.</li>
+        <li>Created a dataset of 600 images from 3 different brands and trained a CNN-based classifier.</li>
+        <li>Achieved 95% training accuracy and 84% validation accuracy, with plans for further improvement via data expansion and regularization.</li>
       </ul>
 
-      <h3>GitHub Copilot Beginner to Pro – AI for Coding & Development</h3>
+      <h3>Full-Stack Budgeting Web App using GitHub Copilot</h3>
+      <div class="muted">Web Development · AI-assisted Coding</div>
       <ul>
-        <li>Built a full-stack budgeting web application using GitHub Copilot to generate frontend and backend code.</li>
-        <li>Used Copilot Chat to generate unit tests, refactor code, and enforce secure coding practices.</li>
-        <li>Developed React/Next.js projects using Copilot Agent Mode for AI-powered code completion and developer productivity.</li>
+        <li>Developed a budgeting web application with frontend and backend generated and refined using GitHub Copilot.</li>
+        <li>Used Copilot Chat to create unit tests, refactor code and apply secure coding practices.</li>
+        <li>Explored React/Next.js workflows supported by Copilot to speed up prototyping and development.</li>
       </ul>
     </section>
 
     <section>
-      <h2>Language Skills</h2>
-      <div>
-        <span class="pill">Mother tongue: Telugu</span>
-        <span class="pill">English</span>
-        <span class="pill">German – A2</span>
-      </div>
-    </section>
+      <h2>Skills</h2>
 
-    <section>
-      <h2>Technical Skills</h2>
-      <div>
+      <h3>Programming & Data</h3>
+      <div class="pill-group">
         <span class="pill">Python</span>
         <span class="pill">SQL</span>
-        <span class="pill">GitHub Copilot</span>
+        <span class="pill">Object-oriented basics</span>
+      </div>
+
+      <h3>AI & Development Tools</h3>
+      <div class="pill-group">
         <span class="pill">Machine Learning basics</span>
         <span class="pill">Deep Learning basics</span>
+        <span class="pill">GitHub Copilot</span>
+      </div>
+
+      <h3>Python Libraries</h3>
+      <div class="pill-group">
         <span class="pill">NumPy</span>
         <span class="pill">Pandas</span>
         <span class="pill">OpenCV</span>
         <span class="pill">Matplotlib</span>
         <span class="pill">TensorFlow</span>
         <span class="pill">Keras</span>
+      </div>
+
+      <h3>Other Skills</h3>
+      <div class="pill-group">
+        <span class="pill">Linux / basic system administration</span>
+        <span class="pill">Incident monitoring & alert handling</span>
         <span class="pill">MS Word</span>
         <span class="pill">MS Excel</span>
         <span class="pill">PowerPoint</span>
@@ -233,32 +224,14 @@
     </section>
 
     <section>
-      <h2>Certifications</h2>
-      <ul>
-        <li>
-          <strong>GitHub Copilot Beginner to Pro – AI for Coding & Development</strong><br>
-          udemy / Certificate: ude.my/UC-d9f4556e-0a1b-4f2b-864a-ffef2bc15380
-        </li>
-        <li>
-          <strong>Applied Data Science powered by IBM</strong><br>
-          Credential ID: Ext-ADS-2022-8626
-        </li>
-        <li>
-          <strong>Internet of Things (IoT) powered by IBM</strong><br>
-          Credential ID: Ext-IOT-2023-4371
-        </li>
-        <li>
-          <strong>Fundamentals of Digital Marketing – Google Digital Garage</strong><br>
-          Credential ID: RSW C5U ZV7
-        </li>
-        <li>
-          <strong>Introduction to Deep Learning – Great Learning</strong>
-        </li>
-      </ul>
+      <h2>Education</h2>
+      <h3>B.Tech in Electrical and Electronics Engineering</h3>
+      <div class="muted">Vellore Institute of Technology (VIT), India · 2019 – 2023</div>
+      <div class="muted">Final grade: 7.51 / 10</div>
     </section>
 
     <div class="footer">
-      © 2025 · Mohan Sai Pragada
+      Portfolio for application – Hof University of Applied Sciences · Mohan Sai Pragada
     </div>
   </main>
 </body>
