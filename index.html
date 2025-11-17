@@ -243,4 +243,208 @@
       }
 
       header {
-        margin-to
+        margin-top: 18px;
+      }
+
+      .name { font-size: 24px; }
+      .tag { font-size: 14px; }
+    }
+
+    /* Print styling for PDF export */
+    @media print {
+      body {
+        background: #ffffff !important;
+      }
+      .nav, .theme-toggle-btn {
+        display: none !important;
+      }
+      section {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+        break-inside: avoid;
+      }
+      a::after {
+        content: " (" attr(href) ")";
+        font-size: 11px;
+        color: #6b7280;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-left">Mohan Sai Pragada</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle-btn" type="button">
+        <span id="theme-icon">🌙</span>
+        <span id="theme-label">Dark</span>
+      </button>
+    </div>
+  </nav>
+
+  <header>
+    <div class="name">Mohan Sai Pragada</div>
+    <div class="tag">Systems Administration • Ops Reliability • Applied Machine Learning</div>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        IT professional at TCS working on reliable operation of production systems: proactive alert triage,
+        incident response, and change execution in distributed environments. Hands-on with Linux-based services,
+        monitoring tools and ticketing workflows. Interests include applied machine learning, image classification
+        and signal processing, demonstrated through a compact car-brand classifier built under data constraints.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        ✉️ <strong>Email:</strong> <a href="mailto:sai.pragada@gmail.com">sai.pragada@gmail.com</a><br>
+        🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mohan-sai-pragada-9110451b4" target="_blank">linkedin.com/in/mohan-sai-pragada-9110451b4</a><br>
+        💻 <strong>GitHub:</strong> <a href="https://github.com/mohansaipragada" target="_blank">github.com/mohansaipragada</a>
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div>
+        <span class="pill">Incident Response</span>
+        <span class="pill">Alert Triage</span>
+        <span class="pill">Linux Administration</span>
+        <span class="pill">Monitoring & Runbooks</span>
+        <span class="pill">Log Analysis</span>
+        <span class="pill">Python</span>
+        <span class="pill">Transfer Learning</span>
+        <span class="pill">Image Classification</span>
+        <span class="pill">Cloud Concepts</span>
+        <span class="pill">German A2</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+
+        <div class="project-card">
+          <h3>Deep-Learning Car-Brand Classifier</h3>
+          <!-- Upload car-classifier.png to your repo and this will show -->
+          <img class="project-image" src="car-classifier.png" alt="Car brand classifier demo screenshot (mockup)">
+          <p class="muted">Computer Vision • Transfer Learning</p>
+          <p>
+            Compact CNN classifier fine-tuned via transfer learning on a small, class-balanced dataset
+            (&lt; 1k images across 3–5 brands). Achieved ~84% validation accuracy by tuning learning rate,
+            regularization and augmentations. Next steps: expand dataset, calibration and deployment as a small
+            web demo.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>Ops Reliability Playbooks</h3>
+          <!-- Upload ops-playbooks.png to your repo and this will show -->
+          <img class="project-image" src="ops-playbooks.png" alt="Ops runbook workflow diagram (mockup)">
+          <p class="muted">SRE Mindset • Production Operations</p>
+          <p>
+            Standardized triage flows for critical alerts and wrote runbooks mapping symptoms to actions
+            and escalation paths. Impact: lower mean time to acknowledge, less guesswork for new team
+            members, and more consistent incident documentation for post-mortems.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>Energy & Systems Learning</h3>
+          <!-- Upload learning-notes.png to your repo and this will show -->
+          <img class="project-image" src="learning-notes.png" alt="DSP / systems learning notes (mockup)">
+          <p class="muted">Signal Processing • Foundations</p>
+          <p>
+            Ongoing study of digital signal processing, discrete mathematics and digital communication systems
+            to strengthen theoretical foundations relevant for data science, ML and future graduate studies
+            in information systems and digital business.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-role">System Administrator / Application Support</div>
+          <div class="timeline-meta">Tata Consultancy Services · 2023 – Present</div>
+          <p>
+            Monitor and triage production alerts, investigate infra and application issues, coordinate
+            with platform and feature teams, and support planned change windows. Contribute to runbook
+            improvements, alert hygiene and smoother on-call handovers with clear documentation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education & Learning</h2>
+      <ul>
+        <li><strong>B.Tech in Electrical & Electronics Engineering</strong> — VIT (India)</li>
+        <li>Self-study: Digital Signal Processing, Discrete Mathematics, Digital Communications.</li>
+        <li>German learner (A2) preparing for Goethe Zertifikat; focus on formal email and workplace communication.</li>
+      </ul>
+    </section>
+
+    <section id="writing">
+      <h2>Writing</h2>
+      <ul>
+        <li>Technical notes for monitoring runbooks, alert categorization and ML evaluation practices.</li>
+        <li>Short German texts (A2 level) for formal email communication and everyday professional scenarios.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      © 2025 · Mohan Sai Pragada · Portfolio
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const body = document.body;
+      const btn = document.getElementById("theme-toggle");
+      const icon = document.getElementById("theme-icon");
+      const label = document.getElementById("theme-label");
+
+      function applyTheme(theme) {
+        if (theme === "dark") {
+          body.dataset.theme = "dark";
+          icon.textContent = "☀️";
+          label.textContent = "Light";
+        } else {
+          delete body.dataset.theme;
+          icon.textContent = "🌙";
+          label.textContent = "Dark";
+        }
+      }
+
+      const stored = localStorage.getItem("theme");
+      if (stored === "dark" || stored === "light") {
+        applyTheme(stored);
+      }
+
+      btn.addEventListener("click", () => {
+        const isDark = body.dataset.theme === "dark";
+        const next = isDark ? "light" : "dark";
+        localStorage.setItem("theme", next);
+        applyTheme(next);
+      });
+    })();
+  </script>
+</body>
+</html>
